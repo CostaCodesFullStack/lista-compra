@@ -1,52 +1,57 @@
-# Calculadora Online - React
+# 🧮 Calculadora Online
 
-Uma calculadora moderna e responsiva construída com React usando CDN.
+Uma calculadora moderna e responsiva desenvolvida em React com modo científico e tema escuro/claro.
 
-## Funcionalidades
+## ✨ Funcionalidades
+
+- **Modo Normal**: Operações básicas (+, -, *, /)
+- **Modo Científico**: Funções trigonométricas, logarítmicas, exponenciais e mais
+- **Tema Escuro/Claro**: Alternância entre temas
+- **Histórico**: Visualização das operações realizadas
+- **Responsivo**: Funciona em desktop e mobile
+- **Teclado**: Suporte completo ao teclado numérico
+
+## 🚀 Como usar
+
+1. Acesse a calculadora online: [https://costacodesfullstack.github.io/calculadora-online](https://costacodesfullstack.github.io/calculadora-online)
+2. Use os botões ou o teclado para inserir números e operações
+3. Pressione `=` ou `Enter` para calcular
+4. Use o botão de modo para alternar entre calculadora normal e científica
+5. Use o botão de tema para alternar entre modo claro e escuro
+
+## 🛠️ Tecnologias
+
+- React 18
+- JavaScript ES6+
+- CSS3 com variáveis CSS
+- GitHub Pages para hospedagem
+
+## 📱 Recursos
 
 ### Modo Normal
-- ✅ Operações básicas (+, -, *, /)
-- ✅ Histórico de cálculos
-- ✅ Suporte ao teclado
-- ✅ Interface responsiva
-- ✅ Operações sequenciais
-- ✅ Botão "=" ocupa toda a largura
+- Operações básicas: +, -, *, /
+- Números decimais
+- Limpar display (C)
+- Teclas de atalho: Enter (=), Escape (limpar), Backspace
 
 ### Modo Científico
-- ✅ Funções trigonométricas (sin, cos, tan)
-- ✅ Logaritmos (log, ln)
-- ✅ Potências (x², x³, eˣ)
-- ✅ Raiz quadrada (√)
-- ✅ Fatorial (n!)
-- ✅ Constantes (π, e)
-- ✅ Alternância entre modos
+- **Trigonométricas**: sin, cos, tan
+- **Logarítmicas**: log, ln
+- **Exponenciais**: exp, pow2, pow3
+- **Especiais**: sqrt, fact, π, e
 
-### Interface
-- ✅ Modo escuro/claro
-- ✅ Indicador de modo ativo
-- ✅ Design moderno e intuitivo
+## 🎨 Interface
 
-## Como Usar
+- Design moderno e limpo
+- Animações suaves
+- Fundo animado com partículas
+- Modo escuro otimizado
+- Histórico com destaque visual
 
-1. **Abrir diretamente**: Simplesmente abra o arquivo `index.html` no seu navegador
-2. **Servidor local** (opcional):
-   ```bash
-   npm install
-   npm start
-   ```
+## 📄 Licença
 
-## Controles
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-- **Mouse**: Clique nos botões para inserir números e operações
-- **Teclado**: 
-  - Números e operadores (0-9, +, -, *, /)
-  - Enter: Calcular
-  - Backspace: Apagar último caractere
-  - Escape: Limpar tudo
+---
 
-## Tecnologias Utilizadas
-
-- React 18 (via CDN)
-- Babel (via CDN)
-- CSS3 com variáveis CSS
-- JavaScript ES6+
+Desenvolvido por [Cauã Costa](https://github.com/CostaCodesFullStack)

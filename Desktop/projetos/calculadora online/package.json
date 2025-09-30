@@ -2,13 +2,18 @@
   "name": "calculadora-react",
   "version": "1.0.0",
   "description": "Calculadora Online em React",
+  "homepage": "https://costacodesfullstack.github.io/calculadora-online",
   "main": "index.html",
   "scripts": {
     "start": "npx http-server -p 3000",
-    "dev": "npx live-server --port=3000"
+    "dev": "npx live-server --port=3000",
+    "build": "mkdir -p dist && cp index.html dist/ && cp -r src dist/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "gh-pages": "^6.0.0"
   }
 }
