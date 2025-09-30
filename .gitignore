@@ -23,20 +23,19 @@ logs
 .DS_Store
 Thumbs.db
 
-# Arquivos do VS Code
+# IDE
 .vscode/
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# Cache
+.cache/
+.parcel-cache/
 
 # Arquivos temporários
 *.tmp
 *.temp
-
-# Arquivos de cache
-.cache/
-.parcel-cache/
 
 # Arquivos do Windows
 AppData/
