@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx http-server -p 3000",
     "dev": "npx live-server --port=3000",
-    "build": "mkdir -p dist && cp index.html dist/ && cp -r src dist/",
+    "build": "mkdir -p dist && cp index.html dist/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

@@ -24,10 +24,10 @@ jobs:
       
     - name: Build project
       run: |
-        # Como é um projeto estático, vamos apenas copiar os arquivos
+        # Criar pasta dist e copiar apenas os arquivos necessários
         mkdir -p dist
         cp index.html dist/
-        cp -r src dist/
+        # Não precisamos copiar a pasta src pois o React está no index.html via CDN
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
