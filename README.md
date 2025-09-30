@@ -1,57 +1,46 @@
-# 🧮 Calculadora Online
+# Getting Started with Create React App
 
-Uma calculadora moderna e responsiva desenvolvida em React com modo científico e tema escuro/claro.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## ✨ Funcionalidades
+## Available Scripts
 
-- **Modo Normal**: Operações básicas (+, -, *, /)
-- **Modo Científico**: Funções trigonométricas, logarítmicas, exponenciais e mais
-- **Tema Escuro/Claro**: Alternância entre temas
-- **Histórico**: Visualização das operações realizadas
-- **Responsivo**: Funciona em desktop e mobile
-- **Teclado**: Suporte completo ao teclado numérico
+In the project directory, you can run:
 
-## 🚀 Como usar
+### `npm start`
 
-1. Acesse a calculadora online: [https://costacodesfullstack.github.io/calculadora-online](https://costacodesfullstack.github.io/calculadora-online)
-2. Use os botões ou o teclado para inserir números e operações
-3. Pressione `=` ou `Enter` para calcular
-4. Use o botão de modo para alternar entre calculadora normal e científica
-5. Use o botão de tema para alternar entre modo claro e escuro
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## 🛠️ Tecnologias
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- React 18
-- JavaScript ES6+
-- CSS3 com variáveis CSS
-- GitHub Pages para hospedagem
+### `npm test`
 
-## 📱 Recursos
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Modo Normal
-- Operações básicas: +, -, *, /
-- Números decimais
-- Limpar display (C)
-- Teclas de atalho: Enter (=), Escape (limpar), Backspace
+### `npm run build`
 
-### Modo Científico
-- **Trigonométricas**: sin, cos, tan
-- **Logarítmicas**: log, ln
-- **Exponenciais**: exp, pow2, pow3
-- **Especiais**: sqrt, fact, π, e
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## 🎨 Interface
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- Design moderno e limpo
-- Animações suaves
-- Fundo animado com partículas
-- Modo escuro otimizado
-- Histórico com destaque visual
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## 📄 Licença
+### `npm run eject`
 
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
----
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Desenvolvido por [Cauã Costa](https://github.com/CostaCodesFullStack)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
