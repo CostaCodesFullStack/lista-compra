@@ -5,8 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Arquivos de build
-build/
 dist/
+build/
 
 # Arquivos de ambiente
 .env
@@ -16,18 +16,57 @@ dist/
 .env.production.local
 
 # Logs
+logs
 *.log
 
 # Arquivos do sistema
 .DS_Store
 Thumbs.db
 
-# IDE
+# Arquivos do VS Code
 .vscode/
-.idea/
-*.swp
-*.swo
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Cache
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de cache
 .cache/
 .parcel-cache/
+
+# Arquivos do Windows
+AppData/
+NTUSER.DAT*
+ntuser.dat*
+desktop.ini
+
+# Arquivos de extensões
+*.vsix
+
+# Arquivos de configuração do sistema
+.gitconfig
+.ipython/
+.jupyter/
+.keras/
+.kivy/
+.matplotlib/
+.openjfx/
+.redhat/
+.wdm/
+
+# Outros arquivos desnecessários
+3D Objects/
+Contacts/
+Downloads/
+Favorites/
+Links/
+Music/
+Pictures/
+Saved Games/
+Searches/
+Videos/
+Lixeira.lnk
