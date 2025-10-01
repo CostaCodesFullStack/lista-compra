@@ -1,1 +1,0 @@
-🛒 Aplicação web moderna para gerenciar listas de compras com React, Node.js e MongoDB Atlas. Interface responsiva, persistência na nuvem e funcionalidades avançadas. Ideal para aprendizado de full-stack e uso pessoal.
