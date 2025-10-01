@@ -12,7 +12,7 @@ yarn-error.log*
 .env.production.local
 
 # Production build
-client/build/
+# client/build/ - Comentado para permitir deploy no GitHub Pages
 dist/
 
 # Logs
