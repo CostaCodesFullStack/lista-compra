@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC Avançada</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> Calculadora de IMC Avançada</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Calculator Section -->
+            <section class="calculator-section">
+                <div class="calculator-card">
+                    <h2>Calcular IMC</h2>
+                    
+                    <!-- Unit Toggle -->
+                    <div class="unit-toggle">
+                        <label class="toggle-label">
+                            <input type="radio" name="unit" value="metric" checked>
+                            <span>Métrico (kg/m)</span>
+                        </label>
+                        <label class="toggle-label">
+                            <input type="radio" name="unit" value="imperial">
+                            <span>Imperial (lb/ft)</span>
+                        </label>
+                    </div>
+
+                    <!-- Input Form -->
+                    <form id="imcForm" class="imc-form">
+                        <div class="input-group">
+                            <label for="weight">Peso</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="weight" step="0.1" min="0" placeholder="0.0" required>
+                                <span class="unit-label" id="weightUnit">kg</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="height">Altura</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="height" step="0.01" min="0" placeholder="0.00" required>
+                                <span class="unit-label" id="heightUnit">m</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="calculate-btn">
+                            <i class="fas fa-calculator"></i> Calcular IMC
+                        </button>
+                    </form>
+
+                    <!-- IMC Result -->
+                    <div id="imcResult" class="imc-result hidden">
+                        <div class="result-header">
+                            <h3>Seu IMC</h3>
+                            <span id="imcValue" class="imc-value">0.0</span>
+                        </div>
+                        
+                        <!-- Visual Indicator -->
+                        <div class="imc-indicator">
+                            <div class="indicator-bar">
+                                <div class="indicator-fill" id="indicatorFill"></div>
+                                <div class="indicator-marker" id="indicatorMarker"></div>
+                            </div>
+                            <div class="indicator-labels">
+                                <span class="label">Abaixo do peso</span>
+                                <span class="label">Normal</span>
+                                <span class="label">Sobrepeso</span>
+                                <span class="label">Obesidade I</span>
+                                <span class="label">Obesidade II</span>
+                                <span class="label">Obesidade III</span>
+                            </div>
+                        </div>
+
+                        <div id="imcCategory" class="imc-category"></div>
+                        <div id="imcAdvice" class="imc-advice"></div>
+                        <div class="result-actions">
+                            <button id="shareResult" class="btn-secondary">
+                                <i class="fas fa-share"></i> Compartilhar Resultado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="advanced-section">
+                <div class="features-grid">
+                    <!-- Ideal Weight -->
+                    <div class="feature-card">
+                        <h3><i class="fas fa-target"></i> Peso Ideal</h3>
+                        <div id="idealWeight" class="feature-content">
+                            <p>Informe peso e altura para calcular</p>
+                        </div>
+                    </div>
+
+                    <!-- Weight Goal -->
+                    <div class="feature-card">
+                        <h3><i class="fas fa-flag-checkered"></i> Meta de Peso</h3>
+                        <div class="feature-content">
+                            <input type="number" id="weightGoal" placeholder="Meta (kg)" step="0.1">
+                            <button id="setGoalBtn" class="btn-secondary">Definir Meta</button>
+                            <div id="goalProgress" class="goal-progress hidden"></div>
+                        </div>
+                    </div>
+
+                    <!-- Health Tips -->
+                    <div class="feature-card">
+                        <h3><i class="fas fa-lightbulb"></i> Dicas de Saúde</h3>
+                        <div id="healthTips" class="feature-content">
+                            <p>Calcule seu IMC para receber dicas personalizadas</p>
+                        </div>
+                    </div>
+
+                    <!-- Reminders -->
+                    <div class="feature-card">
+                        <h3><i class="fas fa-bell"></i> Lembretes</h3>
+                        <div class="feature-content">
+                            <div class="reminder-settings">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="enableReminders">
+                                    <span>Ativar lembretes de medição</span>
+                                </label>
+                                <div id="reminderOptions" class="reminder-options hidden">
+                                    <select id="reminderFrequency">
+                                        <option value="daily">Diário</option>
+                                        <option value="weekly">Semanal</option>
+                                        <option value="monthly">Mensal</option>
+                                    </select>
+                                    <input type="time" id="reminderTime" value="09:00">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Integration Section -->
+            <section class="health-integration-section">
+                <div class="health-card">
+                    <h3><i class="fas fa-heartbeat"></i> Integração com APIs de Saúde</h3>
+                    
+                    <div class="health-tabs">
+                        <button class="tab-btn active" data-tab="nutrition">Nutrição</button>
+                        <button class="tab-btn" data-tab="recipes">Receitas</button>
+                        <button class="tab-btn" data-tab="exercises">Exercícios</button>
+                        <button class="tab-btn" data-tab="calories">Calorias</button>
+                    </div>
+                    
+                    <!-- Nutrition Tab -->
+                    <div class="tab-content active" id="nutrition-tab">
+                        <div class="search-section">
+                            <div class="search-input-group">
+                                <input type="text" id="foodSearch" placeholder="Buscar alimento (ex: maçã, frango, arroz)">
+                                <button id="searchFood" class="btn-primary">
+                                    <i class="fas fa-search"></i> Buscar
+                                </button>
+                            </div>
+                        </div>
+                        <div id="nutritionResults" class="nutrition-results"></div>
+                    </div>
+                    
+                    <!-- Recipes Tab -->
+                    <div class="tab-content" id="recipes-tab">
+                        <div class="recipe-filters">
+                            <select id="recipeCategory">
+                                <option value="">Todas as categorias</option>
+                                <option value="breakfast">Café da manhã</option>
+                                <option value="lunch">Almoço</option>
+                                <option value="dinner">Jantar</option>
+                                <option value="snack">Lanche</option>
+                            </select>
+                            <button id="loadRecipes" class="btn-primary">
+                                <i class="fas fa-utensils"></i> Carregar Receitas
+                            </button>
+                        </div>
+                        <div id="recipesResults" class="recipes-results"></div>
+                    </div>
+                    
+                    <!-- Exercises Tab -->
+                    <div class="tab-content" id="exercises-tab">
+                        <div class="exercise-filters">
+                            <select id="exerciseType">
+                                <option value="">Tipo de exercício</option>
+                                <option value="cardio">Cardio</option>
+                                <option value="strength">Força</option>
+                                <option value="flexibility">Flexibilidade</option>
+                                <option value="balance">Equilíbrio</option>
+                            </select>
+                            <select id="exerciseIntensity">
+                                <option value="">Intensidade</option>
+                                <option value="beginner">Iniciante</option>
+                                <option value="intermediate">Intermediário</option>
+                                <option value="advanced">Avançado</option>
+                            </select>
+                            <button id="loadExercises" class="btn-primary">
+                                <i class="fas fa-dumbbell"></i> Buscar Exercícios
+                            </button>
+                        </div>
+                        <div id="exercisesResults" class="exercises-results"></div>
+                    </div>
+                    
+                    <!-- Calories Tab -->
+                    <div class="tab-content" id="calories-tab">
+                        <div class="calorie-calculator">
+                            <h4>Calculadora de Calorias</h4>
+                            <div class="calorie-inputs">
+                                <div class="input-group">
+                                    <label>Idade</label>
+                                    <input type="number" id="age" placeholder="25" min="1" max="120">
+                                </div>
+                                <div class="input-group">
+                                    <label>Sexo</label>
+                                    <select id="gender">
+                                        <option value="male">Masculino</option>
+                                        <option value="female">Feminino</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Nível de Atividade</label>
+                                    <select id="activityLevel">
+                                        <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
+                                        <option value="1.375">Levemente ativo (exercício leve 1-3 dias/semana)</option>
+                                        <option value="1.55">Moderadamente ativo (exercício moderado 3-5 dias/semana)</option>
+                                        <option value="1.725">Muito ativo (exercício intenso 6-7 dias/semana)</option>
+                                        <option value="1.9">Extremamente ativo (exercício muito intenso, trabalho físico)</option>
+                                    </select>
+                                </div>
+                                <button id="calculateCalories" class="btn-primary">
+                                    <i class="fas fa-calculator"></i> Calcular Calorias
+                                </button>
+                            </div>
+                            <div id="calorieResults" class="calorie-results hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <div class="history-card">
+                    <div class="history-header">
+                        <h3><i class="fas fa-history"></i> Histórico de Medições</h3>
+                        <div class="history-actions">
+                            <button id="exportCSV" class="btn-secondary">
+                                <i class="fas fa-download"></i> Exportar CSV
+                            </button>
+                            <button id="clearHistory" class="btn-danger">
+                                <i class="fas fa-trash"></i> Limpar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="history-content">
+                        <div id="historyList" class="history-list">
+                            <p class="empty-state">Nenhuma medição registrada ainda</p>
+                        </div>
+                        
+                        <div id="historyChart" class="history-chart hidden">
+                            <canvas id="evolutionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
