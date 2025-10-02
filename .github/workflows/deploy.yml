@@ -35,7 +35,6 @@ jobs:
     - name: Build React app
       run: npm run build
       env:
-        MONGODB_URI: ${{ secrets.MONGODB_URI }}
         PUBLIC_URL: /lista-compra
         
     - name: Setup Pages

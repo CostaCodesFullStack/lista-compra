@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, Form, Button, Badge, Spinner, Alert } from 'react-bootstrap';
+import { ListGroup, Badge, Spinner, Alert } from 'react-bootstrap';
 import ProdutoItem from './ProdutoItem';
 
 const ListaProdutos = ({ produtos, loading, onMarcarComprado, onRemover }) => {
