@@ -1,0 +1,24 @@
+{
+  "name": "netflix-clone",
+  "version": "1.0.0",
+  "description": "Netflix Clone - Frontend e Backend",
+  "private": true,
+  "scripts": {
+    "start": "npx concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "backend:prod": "cd backend && npm start",
+    "frontend:build": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "npx concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "npm run frontend:build",
+    "test": "cd backend && npm test && cd ../frontend && npm test",
+    "vercel-build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "keywords": ["netflix", "clone", "react", "node", "express", "mongodb"],
+  "author": "Netflix Clone Team",
+  "license": "MIT"
+}
